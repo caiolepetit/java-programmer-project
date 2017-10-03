@@ -4,15 +4,22 @@ public class Message implements Protocol {
 
 	private final String message;
 	private final String nickName;
-	private final int ipAddress;
+	private final int clientIP;
 	private final long timestamp;
 
 	public Message(final String message, final String nickName,
 			final int ipAddress, final long timestamp) {
-		this.message = message;
-		this.nickName = nickName;
-		this.ipAddress = ipAddress;
+		this.message = safeString(message);
+		this.nickName = safeString(nickName);
+		this.clientIP = ipAddress;
 		this.timestamp = timestamp;
+	}
+	
+	private String safeString(String text){
+		if (text == null){
+			return "";
+		}
+		return text;
 	}
 
 	@Override
@@ -21,8 +28,8 @@ public class Message implements Protocol {
 	}
 
 	@Override
-	public int getClienteIP() {
-		return ipAddress;
+	public int getClientIP() {
+		return clientIP;
 	}
 
 	@Override

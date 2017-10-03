@@ -4,7 +4,7 @@ public interface Protocol {
 
 	public long getTimestamp();
 
-	public int getClienteIP();
+	public int getClientIP();
 
 	public String getNickName();
 
