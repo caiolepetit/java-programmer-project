@@ -2,32 +2,37 @@ package br.com.impacta.chat.common;
 
 public class Message implements Protocol {
 
-	public Message (final int ipAddress, final String nickName){
-		
+	private final String message;
+	private final String nickName;
+	private final int ipAddress;
+	private final long timestamp;
+
+	public Message(final String message, final String nickName,
+			final int ipAddress, final long timestamp) {
+		this.message = message;
+		this.nickName = nickName;
+		this.ipAddress = ipAddress;
+		this.timestamp = timestamp;
 	}
-	
+
 	@Override
 	public long getTimestamp() {
-		// TODO Auto-generated method stub
-		return 0;
+		return timestamp;
 	}
 
 	@Override
 	public int getClienteIP() {
-		// TODO Auto-generated method stub
-		return 0;
+		return ipAddress;
 	}
 
 	@Override
 	public String getNickName() {
-		// TODO Auto-generated method stub
-		return null;
+		return nickName;
 	}
 
 	@Override
 	public String getMessage() {
-		// TODO Auto-generated method stub
-		return null;
+		return message;
 	}
 
 }
